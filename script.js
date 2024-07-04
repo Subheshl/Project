@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     gigya.cdp.init({
       apiDomain: 'EU5',
-      bUnitId: '4_vuyHuRd8K_y9KrWOKNHd0A',
-      appId: 'HIZ_ZYqCQQrOAywJZwT7Bg'
+      bUnitId: '4_2arKfv5bsPsK9ODVBhCJeA'',
+      appId: 'HLnxME1S3b0RyHdQkB8FJA'
   })
   .then(function(sdk) { window.CDP = sdk;
       CDP.report('Registration_Form',
