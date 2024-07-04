@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
       alert("Error reporting data to CDP.");
   });
     
-    console.log('Form Data:', formData);
+   
     
     this.reset();
   });
