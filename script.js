@@ -24,16 +24,16 @@ document.addEventListener('DOMContentLoaded', function() {
   .then(function(sdk) { window.CDP = sdk;
       CDP.report('Registration_Form',
           {
-              "Mail_id": "",
-    "Firstname": "",
-    "Lastname": "",
+              "Mail_id": email,
+    "Firstname": firstName,
+    "Lastname": lastName,
     "Address": {
-        "AddressLine1": "",
-        "AddressLine2": "",
-        "Country": "",
-        "State": "",
-        "City": "",
-        "Pincode": ""
+        "AddressLine1": address1,
+        "AddressLine2": address2,
+        "Country": country,
+        "State": state,
+        "City": city,
+        "Pincode": pincode
     }
           }
           );
