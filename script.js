@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
       appId: 'HLnxME1S3b0RyHdQkB8FJA'
   })
   .then(function(sdk) { window.CDP = sdk;
-      CDP.report('Registration_Form',
+      CDP.report('Registration form',
           {
               "Mail_id": email,
     "Firstname": firstName,
