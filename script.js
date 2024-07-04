@@ -24,9 +24,17 @@ document.addEventListener('DOMContentLoaded', function() {
   .then(function(sdk) { window.CDP = sdk;
       CDP.report('Registration_Form',
           {
-              "emailid": email,
-              "firstname": firstName,
-              "lastname": lastName
+              "Mail_id": "",
+    "Firstname": "",
+    "Lastname": "",
+    "Address": {
+        "AddressLine1": "",
+        "AddressLine2": "",
+        "Country": "",
+        "State": "",
+        "City": "",
+        "Pincode": ""
+    }
           }
           );
           alert('Form submitted successfully!');
@@ -35,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
       alert("Error reporting data to CDP.");
   });
     
-   
     
     this.reset();
   });
