@@ -94,4 +94,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
  
-has context menu
+
