@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
           "Country": formData.country,
           "State": formData.state,
           "City": formData.city,
-          "Pincode": formData.pincode
+          "Pincode": formData.pincode,
+           "addressid": "1"
         }
       });
       alert('Form submitted successfully!');
