@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "Mail_id": formData.email,
         "Firstname": formData.firstName,
         "Lastname": formData.lastName,
-        "Address": {
+        "addresses": {
           "AddressLine1": formData.address1,
           "AddressLine2": formData.address2,
           "Country": formData.country,
