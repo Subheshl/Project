@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Store the SDK in a global variable for future use if needed
       window.CDP = sdk;
       // Prepare data for CDP.report function with basic details only
-      CDP.report('CustomerConsent', {
+      CDP.report('Customer Consent', {
         "Email": formData.email,
         "FirstName": formData.firstName,
         "LastName": formData.lastName
