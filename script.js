@@ -16,19 +16,20 @@ document.addEventListener('DOMContentLoaded', function() {
       city: document.getElementById('city').value,
       pincode: document.getElementById('pincode').value
     };
+   // Confirmation dialog
  
-    // Confirmation dialog
-    if (confirm('Do you want to share your full registration details? Click OK for yes, Cancel for no.')) {
-      // User clicked OK - Share full details
-      shareFullDetails(formData);
-    } else {
-      // User clicked Cancel or No - Share basic details only
-      shareBasicDetails(formData);
+   const consentConfirmed = confirm('Do you want to share your full registration details? Click OK for yes, Cancel for no.');
+ 
+     
+    // Determine which function to call based on consent
+ 
+    if (consentConfirmed) {
+ 
+      shareBasicDetails(formData); 
     }
- 
+    shareFullDetails(formData);
     this.reset(); // Reset the form
   });
- 
   function shareFullDetails(formData) {
     // Initialize Gigya CDP SDK for full details
     gigya.cdp.init({
@@ -39,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(function(sdk) {
       // Store the SDK in a global variable for future use if needed
       window.CDP = sdk;
- 
       // Prepare data for CDP.report function with full details
       CDP.report('Registration', {
         "Email": formData.email,
@@ -52,10 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
           "Country": formData.country,
           "State": formData.state,
           "Pincode": formData.pincode,
-          "addressId": "4"
+          "addressId": "6"
         }
       });
- 
       // Report data to Gigya CDP
       alert('Form submitted successfully with full details!');
     })
@@ -64,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
       alert("Error reporting data to CDP.");
     });
   }
- 
   function shareBasicDetails(formData) {
     // Initialize Gigya CDP SDK for basic details only
     gigya.cdp.init({
@@ -75,14 +73,12 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(function(sdk) {
       // Store the SDK in a global variable for future use if needed
       window.CDP = sdk;
- 
       // Prepare data for CDP.report function with basic details only
       CDP.report('CustomerConsent', {
         "Email": formData.email,
         "FirstName": formData.firstName,
         "LastName": formData.lastName
       });
- 
       // Report data to Gigya CDP
       alert('Form submitted successfully with basic details!');
     })
@@ -92,6 +88,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
-
- 
-
