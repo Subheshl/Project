@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('registrationForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from submitting normally
+
     // Gather form data
     const formData = {
       firstName: document.getElementById('firstName').value,
@@ -16,20 +17,20 @@ document.addEventListener('DOMContentLoaded', function() {
       city: document.getElementById('city').value,
       pincode: document.getElementById('pincode').value
     };
-   // Confirmation dialog
- 
-   const consentConfirmed = confirm('Do you want to share your full registration details? Click OK for yes, Cancel for no.');
- 
-     
+
+    // Confirmation dialog
+    const consentConfirmed = confirm('Do you want to share your full registration details? Click OK for yes, Cancel for no.');
+
     // Determine which function to call based on consent
- 
     if (consentConfirmed) {
- 
-      shareBasicDetails(formData); 
+      shareFullDetails(formData);
+    } else {
+      shareBasicDetails(formData);
     }
-    shareFullDetails(formData);
+
     this.reset(); // Reset the form
   });
+
   function shareFullDetails(formData) {
     // Initialize Gigya CDP SDK for full details
     gigya.cdp.init({
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
           "Country": formData.country,
           "State": formData.state,
           "Pincode": formData.pincode,
-          "addressId": "6"
+          "addressId": "12"
         }
       });
       // Report data to Gigya CDP
@@ -63,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
       alert("Error reporting data to CDP.");
     });
   }
+
   function shareBasicDetails(formData) {
     // Initialize Gigya CDP SDK for basic details only
     gigya.cdp.init({
