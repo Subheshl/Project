@@ -22,11 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const consentConfirmed = confirm('Do you want to share your full registration details? Click OK for yes, Cancel for no.');
 
     // Determine which function to call based on consent
-    if (consentConfirmed) {
-      shareFullDetails(formData);
-    } else {
-      shareBasicDetails(formData);
+   if (consentConfirmed) {
+      shareBasicDetails(formData); 
     }
+    shareFullDetails(formData);
 
     this.reset(); // Reset the form
   });
